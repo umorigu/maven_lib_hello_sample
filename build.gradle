@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id 'maven'
 }
 
 repositories {
@@ -13,4 +14,16 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+group = 'com.github.umorigu'
+version = '0.0.1'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.artifactId = 'maven_lib_hello_sample'
+            repository(url: "file://${projectDir}/../maven_lib_hello_sample_release/Release/")
+        }
+    }
 }
